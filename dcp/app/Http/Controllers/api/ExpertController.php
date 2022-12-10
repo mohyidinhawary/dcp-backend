@@ -16,7 +16,7 @@ class ExpertController extends Controller
         "email"=>"required|email|unique:experts",
         "password"=>"required|confirmed"
     ]);
-    // create user+save
+    // create expert+save
     $expert=new Expert();
     $expert->name=$request->name;
     $expert->email=$request->email;

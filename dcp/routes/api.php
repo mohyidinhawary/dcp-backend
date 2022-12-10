@@ -6,6 +6,7 @@ use App\Http\Controllers\api\UserController;
 use App\Http\Controllers\api\CourseController;
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\api\ExpertController;
+use App\Http\Controllers\api\ExpertDetailsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,6 +21,7 @@ Route::post("user-register",[UserController::class,"Register"]);//done
 Route::post("expert-register",[ExpertController::class,"Register"]);//done
 Route::post("user-login",[UserController::class,"Login"]);//done
 Route::post("expert-login",[ExpertController::class,"Login"]);
+Route::post("expert-details-enroll",[ExpertDetailsController::class,"ExpertDetailsEnroll"]);
 Route::group(["middleware"=>["auth:api"]],function(){
     Route::get("user_profile",[UserController::class,"Profile"]);
     Route::get("user-logout",[UserController::class,"Logout"]);//done

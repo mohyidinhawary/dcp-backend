@@ -13,6 +13,7 @@ use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 class Expert extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
+    protected $table='experts';
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +24,8 @@ class Expert extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
+       
+
     ];
 
     /**
