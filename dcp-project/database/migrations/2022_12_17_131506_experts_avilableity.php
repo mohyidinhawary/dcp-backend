@@ -13,16 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('experts-avilableity');
         Schema::create('experts-avilableity', function (Blueprint $table) {
             $table->id();
-           
-            
-            $table->string('today');
+            $table->unsignedBigInteger('expert_id')->nullable();
+            $table->string('day');
             $table->date('date'); 
-           $table->timeTz('from',$precision = 0);
-           $table->timeTz('to',$precision = 0);
+            $table->timeTz('from',$precision = 0);
+            $table->timeTz('to',$precision = 0);
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('expert_id')->references('id')->on('experts')->onDelete("NO ACTION");
+            $table->foreign('user_id')->references('id')->on('users')->onDelete("NO ACTION");
         });
     }
 
@@ -35,5 +38,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('experts-avilableity');
     }
-    };
+};
 
