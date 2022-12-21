@@ -29,7 +29,7 @@ Route::post("addToWallet",[UserController::class,"addToWallet"]);
 
 Route::post("pay/{id}",[UserController::class,"pay"]);
 
-Route::get("availableTime",[UserController::class,"AvailableTime"]);
+Route::get("availableTime/{id}",[UserController::class,"AvailableTime"]);
 
 Route::post("reservation/{id1}/{id2}",[UserController::class,"Reservation"]);
 
