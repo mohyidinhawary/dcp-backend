@@ -155,7 +155,7 @@ class UserController extends Controller
         ]);
     }    
     public function Reservation($id1,$id2){
-        $res1=ExpertAvailability::where('expert_id',$id2)->first();
+        $res1=ExpertAvailability::where('id',$id2)->first();
         if(!($res1->user_id)){
             $res1->user_id=$id1;
             $res1->save();
