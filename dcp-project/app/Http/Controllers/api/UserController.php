@@ -111,6 +111,24 @@ class UserController extends Controller
             ->get();
         return response()->json($consultant);
     }
+    public function search(Request $request){
+        $request->validate([
+           "name"=>"required"
+        ]);
+        if($consultant=Expert::where('experts.name',$request->name)->get())
+        {   
+            return response()->json([
+                'status'=>1,
+                'message'=>'Expert details',
+                'Expert is'=> $consultant
+            ]);
+        }
+        else
+        return response()->json([
+            'status'=>0,
+            'message'=>'No expert with the same name or role'
+        ]);
+    }
 
 //payment methodes
     public function addToWallet(Request $request){
