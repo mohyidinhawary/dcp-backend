@@ -31,7 +31,11 @@ Route::post("pay/{id}",[UserController::class,"pay"]);
 
 Route::get("availableTime/{id}",[UserController::class,"AvailableTime"]);
 
+Route::get("show/{id}",[ExpertController::class,"ShowAvailableTimes"]);
+
 Route::post("reservation/{id1}/{id2}",[UserController::class,"Reservation"]);
+
+Route::post("search",[UserController::class,"search"]);
 
 
 Route::post("expert-details-enroll",[ExpertDetailsController::class,"ExpertDetailsEnroll"]);//done
