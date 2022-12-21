@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('experiences')->nullable();
             $table->string('experience_years',20);
+            $table->integer('wallet')->nullable();
+            $table->integer('session_price');
             $table->integer('role1')->nullable();
             $table->integer('role2')->nullable();
             $table->integer('role3')->nullable();
