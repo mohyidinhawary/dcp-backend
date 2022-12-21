@@ -23,7 +23,16 @@ Route::post("user-register",[UserController::class,"Register"]);//done
 Route::post("user-login",[UserController::class,"Login"]);//done
 Route::post("expert-register",[ExpertController::class,"Register"]);//done
 Route::post("expert-login",[ExpertController::class,"Login"]);//done
-Route::post("expert-times-enroll",[ExpertAvailabilityController::class,"AddTimes"]);
+Route::post("expert-times-enroll/{id}",[ExpertAvailabilityController::class,"AddTimes"]);
+
+Route::post("addToWallet",[UserController::class,"addToWallet"]);
+
+Route::post("pay/{id}",[UserController::class,"pay"]);
+
+Route::get("availableTime",[UserController::class,"AvailableTime"]);
+
+Route::post("reservation/{id1}/{id2}",[UserController::class,"Reservation"]);
+
 
 Route::post("expert-details-enroll",[ExpertDetailsController::class,"ExpertDetailsEnroll"]);//done
 Route::get("expert_profile",[UserController::class,"ExpertProfile"]);
