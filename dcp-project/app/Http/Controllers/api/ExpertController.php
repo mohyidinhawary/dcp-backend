@@ -89,14 +89,11 @@ class ExpertController extends Controller
         $expert=ExpertAvailability::where('expert_id',$id)->get();
         if(DB::table('experts-avilableity')->where('expert_id',$id)->select('user_id')->get()){
             return response()->json([
-                "message"=>$expert
+                "your reservations is:",
+                $expert
             ]);
         }
-        else{
-            return response()->json([
-                "message"=>"no reservation"
-            ]);
-        }
+        
     }
 
 }
