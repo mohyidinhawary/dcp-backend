@@ -36,6 +36,7 @@ Route::get("show/{id}",[ExpertController::class,"ShowAvailableTimes"]);
 Route::post("reservation/{id1}/{id2}",[UserController::class,"Reservation"]);
 
 Route::post("search",[UserController::class,"search"]);
+Route::get("expert_profile/{id}",[UserController::class,"getExpertDetails"]);
 
 
 Route::post("expert-details-enroll",[ExpertDetailsController::class,"ExpertDetailsEnroll"]);//done
@@ -44,7 +45,6 @@ Route::group(["middleware"=>["auth:user-api"]],function(){
     Route::get("user_profile",[UserController::class,"Profile"]);
     Route::get("user-logout",[UserController::class,"Logout"]);//done
     Route::get("browse-Consulting",[UserController::class,"BrowseConsultingExperts"]);
-    Route::get("expert-profile/{id}",[UserController::class,"getExpertDetails"]);
     Route::post("favorite-experts",[FavoriteController::class,"AddExpert"]);
 // course api routes
 Route::post("course-enroll",[CourseController::class,"CourseEnrollment"]);
