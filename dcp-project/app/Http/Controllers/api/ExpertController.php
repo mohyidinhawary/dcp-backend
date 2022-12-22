@@ -94,7 +94,7 @@ class ExpertController extends Controller
         }
         else{
             return response()->json([
-                "message"=>"error"
+                "message"=>"no reservation"
             ]);
         }
     }
