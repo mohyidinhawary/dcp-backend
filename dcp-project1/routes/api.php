@@ -44,15 +44,20 @@ Route::get("expert_profile/{id}",[UserController::class,"getExpertDetails"]);//d
 Route::get("get",[UserController::class,"getExpertsDetails"]);//done
 
 // the basic task3
-Route::get("reservation/{id1}/{id2}",[UserController::class,"Reservation"]);//done
+Route::post("reservation/{id1}/{id2}",[UserController::class,"Reservation"]);//done
 Route::get("availableTime/{id}",[UserController::class,"AvailableTime"]);//done
 Route::post("addToWallet",[UserController::class,"addToWallet"]);//done
 Route::post("pay/{id}",[UserController::class,"pay"]);//done
 
 
-
 // the basic task4
 Route::get("show/{id}",[ExpertController::class,"ShowReservations"]);//done
+// extra task2
+Route::post("rate/{id1}/{id2}",[UserController::class,"rating"]);
+
+// extra task3
+Route::get("AddExpert/{id1}/{id2}",[FavoriteController::class,"AddExpert"]);
+Route::delete("deleteExpert/{id1}/{id2}",[FavoriteController::class,"deleteExpert"]);
 
 // extra task1
 Route::post("Send_user_Massege/{id1}/{id2}",[UserSubjectController::class,"SendMassege"]);
@@ -67,21 +72,15 @@ Route::get("get_expert_messages_outgoing/{id}",[ExpertMessageController::class,"
 Route::get("delete_expert_message/{id1}/{id2}",[ExpertMessageController::class,"DeleteMessage"]);//done
 
 
-// Route::post("rate/{id1}/{id2}",[UserController::class,"rating"]);
 
 
 Route::get("get_expert_inbox/{id1}",[ExpertMessageController::class,"GetMessages"]);//done
 
 Route::post("expert_answer/{id1}/{id2}",[ExpertMessageController::class,"ExpertAnswer"]);
 
+//done
 
 
-
-
-// Route::post("favorite-experts/{id}",[FavoriteController::class,"AddExpert"]);//done
-
-// Route::post("expert-details-enroll",[ExpertDetailsController::class,"ExpertDetailsEnroll"]);//done
-// Route::get("expert_profile",[UserController::class,"ExpertProfile"]);
 Route::group(["middleware"=>["auth:user-api"]],function(){
     Route::get("user_profile",[UserController::class,"Profile"]);
     // compulsory task2
