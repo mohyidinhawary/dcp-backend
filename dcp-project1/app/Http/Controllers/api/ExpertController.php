@@ -86,13 +86,16 @@ class ExpertController extends Controller
         
     }
     public function ShowReservations($id){
-        $expert=ExpertAvailability::where('expert_id',$id)->whereNot('user_id',null)->select('expert_id','user_id','day','date','from','to')->get();
-        if(DB::table('experts-avilableity')->where('expert_id',$id)->select('user_id')->get()){
+       $expert=ExpertAvailability::where('expert_id',$id)->whereNot('user_id',NULL)->get();
+       if(!($c=ExpertAvailability::where('expert_id',$id)->select('user_id')->first()))
+       {
             return response()->json([
-                "your reservations is:",
-                $expert
+                "message"=>"no reservations"
             ]);
-        }
+       }
+       return response()->json([
+            "your reservations is :"=>$expert
+       ]);
     }
 
 }
