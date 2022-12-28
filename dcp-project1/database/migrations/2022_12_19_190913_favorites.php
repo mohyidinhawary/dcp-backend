@@ -14,17 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('favorites', function (Blueprint $table) {
-           
-            $table->integer("user_id")->unsigned();
-            $table->string('expert_name');
-            $table->boolean('Medical_consulting')->nullable();
-            $table->boolean('Professional_consulting')->nullable();
-            $table->boolean('Psychological_consulting')->nullable();
-            $table->boolean('Family_consulting')->nullable();
-            $table->boolean('management_consulting')->nullable();
-           
-            
-           
+            $table->id();
+            $table->unsignedBigInteger("user_id");
+            $table->unsignedBigInteger("expert_id");
+            $table->foreign('expert_id')->references('id')->on('experts')->onDelete("NO ACTION");
+            $table->foreign('user_id')->references('id')->on('users')->onDelete("NO ACTION");
         });
     }
 
