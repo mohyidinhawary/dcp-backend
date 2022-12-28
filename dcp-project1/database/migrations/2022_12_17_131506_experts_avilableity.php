@@ -19,8 +19,8 @@ return new class extends Migration
             $table->unsignedBigInteger('expert_id')->nullable();
             $table->string('day');
             $table->date('date'); 
-            $table->timeTz('from',$precision = 0);
-            $table->timeTz('to',$precision = 0);
+            $table->time('from');
+            $table->time('to');
             $table->unsignedBigInteger('user_id')->nullable();
             
             $table->foreign('expert_id')->references('id')->on('experts')->onDelete("NO ACTION");
