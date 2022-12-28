@@ -25,16 +25,12 @@ return new class extends Migration
             $table->string('experience_years',20);
             $table->integer('wallet')->nullable();
             $table->integer('session_price');
-            $table->float('avg_rate')->nullable();
+            $table->float('rate')->nullable();
             $table->boolean('Medical_consulting')->nullable();
             $table->boolean('Professional_consulting')->nullable();
             $table->boolean('Psychological_consulting')->nullable();
             $table->boolean('Family_consulting')->nullable();
             $table->boolean('management_consulting')->nullable();
-            
-            //$table->integer('user_id');
-            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            
         });
     }
 
@@ -48,3 +44,4 @@ return new class extends Migration
         Schema::dropIfExists('experts');
     }
 };
+
